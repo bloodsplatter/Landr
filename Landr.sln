@@ -5,7 +5,9 @@ VisualStudioVersion = 15.0.28307.106
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Landr.Web", "Landr.Web\Landr.Web.csproj", "{861DFB45-1CCF-45DB-BD94-B037E7E0B8C1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Landr.SDK", "Landr.SDK\Landr.SDK.csproj", "{87AA0339-FA46-4524-BF68-7B843A8FA084}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Landr.SDK", "Landr.SDK\Landr.SDK.csproj", "{87AA0339-FA46-4524-BF68-7B843A8FA084}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Landr.Data", "Landr.Data\Landr.Data.csproj", "{52AA14D1-1439-4806-8B91-8264B3D7D1D9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{87AA0339-FA46-4524-BF68-7B843A8FA084}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87AA0339-FA46-4524-BF68-7B843A8FA084}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{87AA0339-FA46-4524-BF68-7B843A8FA084}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52AA14D1-1439-4806-8B91-8264B3D7D1D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52AA14D1-1439-4806-8B91-8264B3D7D1D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52AA14D1-1439-4806-8B91-8264B3D7D1D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52AA14D1-1439-4806-8B91-8264B3D7D1D9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
