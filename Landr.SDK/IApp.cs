@@ -1,4 +1,5 @@
-﻿
+﻿using System;
+
 namespace Landr.SDK
 {
     /// <summary>
@@ -6,6 +7,11 @@ namespace Landr.SDK
     /// </summary>
     public interface IApp
     {
+        /// <summary>
+        /// A unique ID
+        /// </summary>
+        Guid Id { get; set; }
+
         /// <summary>
         /// The name of the app
         /// </summary>
