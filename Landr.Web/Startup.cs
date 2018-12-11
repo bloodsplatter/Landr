@@ -31,6 +31,7 @@ namespace Landr.Web
             services.AddDataSource();
             services.ConfigureIdentity();
 
+            //configure some extra cookie policies
             services.Configure<CookiePolicyOptions>(cookie =>
             {
                 cookie.CheckConsentNeeded = context => true;
@@ -44,7 +45,7 @@ namespace Landr.Web
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseBrowserLink();
+                app.UseBrowserLink(); //browser link enables extra debugging options from the browser, see: https://docs.microsoft.com/en-us/aspnet/core/client-side/using-browserlink?view=aspnetcore-2.1
                 app.UseDatabaseErrorPage();
             }
 
