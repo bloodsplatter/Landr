@@ -1,10 +1,8 @@
 ﻿
-using System.Reflection.Metadata.Ecma335;
-
 namespace Landr.SDK
 {
     /// <inheritdoc />
-    public abstract class AppBase : IApp
+    public abstract class BaseApp : IApp
     {
         public string Name { get; set; }
         public string Icon { get; set; }

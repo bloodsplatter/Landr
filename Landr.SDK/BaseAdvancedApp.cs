@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Landr.SDK
 {
-    public abstract class AdvancedAppBase : AppBase, IAdvancedApp
+    public abstract class BaseAdvancedApp : BaseApp, IAdvancedApp
     {
         public string Type => GetType().FullName;
     }

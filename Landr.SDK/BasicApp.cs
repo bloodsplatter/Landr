@@ -1,7 +1,7 @@
 namespace Landr.SDK
 {
     /// <inheritdoc />
-    public class BasicApp : AppBase
+    public class BasicApp : BaseApp
     {
         public BasicApp()
         {
