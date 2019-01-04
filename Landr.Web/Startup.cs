@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Landr.Data;
+using Landr.SDK;
 using Landr.Web.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -37,6 +38,7 @@ namespace Landr.Web
                 cookie.CheckConsentNeeded = context => true;
                 cookie.MinimumSameSitePolicy = SameSiteMode.None;
             });
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
