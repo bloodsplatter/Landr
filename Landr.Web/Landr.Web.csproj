@@ -24,9 +24,10 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.6"/>
     <PackageReference Include="Microsoft.Composition" Version="1.0.31" ExcludeAssets="All"/>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.4"/>
+    <PackageReference Include="Microsoft.Extensions.Localization" Version="2.1.1"/>
   </ItemGroup>
   <ItemGroup>
-    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.4" />
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.4"/>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Landr.Data\Landr.Data.csproj"/>
