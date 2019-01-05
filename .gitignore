@@ -339,3 +339,4 @@ ASALocalRun/
 # Local History for Visual Studio
 .localhistory/
 /Landr.Data/landr.db
+/Landr.Web/users.db
