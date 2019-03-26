@@ -30,8 +30,8 @@ namespace Landr.Web
             services.AddLocalization(options => options.ResourcesPath = "Resources");
 
             services.AddMvc()
-				.SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
-				.AddViewLocalization();
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
+                .AddViewLocalization();
 
             services.AddDataSource();
             services.ConfigureIdentity();
