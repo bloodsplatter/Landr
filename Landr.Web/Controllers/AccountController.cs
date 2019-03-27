@@ -50,7 +50,7 @@ namespace Landr.Web.Controllers
                     kvp => kvp.Value.Errors.Select(e => e.ErrorMessage)));
             }
 
-			//TODO: add registration email stuff, then redirect to other page
+			// TODO: add registration email stuff, then redirect to other page
 
 			return RedirectToAction("VerifyEmail", new { id = (await _userManager.FindByEmailAsync(email)).Id, token = (await _userManager.GenerateEmailConfirmationTokenAsync(newUser)) });
 		}
