@@ -6,7 +6,7 @@ namespace Landr.Web.Controllers
     {
         public IActionResult Index()
         {
-            return new OkResult();
+            return View();
         }
     }
 }

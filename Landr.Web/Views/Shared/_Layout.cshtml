@@ -1,6 +1,6 @@
 ﻿@using System.Globalization
 <!DOCTYPE html>
-<html lang="@CultureInfo.CurrentUICulture.TwoLetterISOLanguageName">
+<html lang="@CultureInfo.CurrentCulture.TwoLetterISOLanguageName)">
 
 <head>
     <meta charset="utf-8">
@@ -10,6 +10,10 @@
 </head>
 
 <body>
+    <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Landr</a>
+        @RenderSection("NavItems", required: true)
+    </nav>
     <main class="container" role="main">
         @RenderBody()
     </main>
