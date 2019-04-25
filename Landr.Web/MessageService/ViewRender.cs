@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Routing;
 
 namespace Landr.Web.MessageService
 {
+    // All credit to: https://stackoverflow.com/a/37296765/176541 
     public class ViewRender
     {
         private IRazorViewEngine _viewEngine;
