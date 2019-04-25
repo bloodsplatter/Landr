@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Landr.Data;
 using Landr.SDK;
 using Landr.Web.Identity;
+using Landr.Web.MessageService;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Landr.Web
@@ -35,6 +36,8 @@ namespace Landr.Web
 
             services.AddDataSource();
             services.ConfigureIdentity();
+
+            services.AddScoped<ViewRender, ViewRender>();
 
             //configure some extra cookie policies
             services.Configure<CookiePolicyOptions>(cookie =>
