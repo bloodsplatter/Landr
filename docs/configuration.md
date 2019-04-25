@@ -6,6 +6,7 @@ Include the following section in your appsettings.json:
     {
        "Server": "server-address",
        "Port": 993,
+       "From": "noreply@your.server",
        "UseSSL": true
     } `
 
@@ -16,3 +17,4 @@ You can use the following keys:
 * Smtp:Server
 * Smtp:Port
 * Smtp:UseSSL
+* Smtp:From
