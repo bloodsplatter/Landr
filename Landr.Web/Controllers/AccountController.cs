@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
+using Landr.Web.MessageService;
 
 namespace Landr.Web.Controllers
 {
@@ -13,12 +14,15 @@ namespace Landr.Web.Controllers
 		private readonly UserManager<IdentityUser> _userManager;
 		private readonly SignInManager<IdentityUser> _signInManager;
 		private readonly IStringLocalizer<AccountController> l;
+		private readonly IMessageService _messageService;
 
-		public AccountController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager, IStringLocalizer<AccountController> localizer)
+		public AccountController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager,
+			IStringLocalizer<AccountController> localizer, IMessageService messageService)
 		{
 			_userManager = userManager;
 			_signInManager = signInManager;
 			l = localizer;
+			_messageService = messageService;
 		}
 
 		[HttpPost]
@@ -47,9 +51,19 @@ namespace Landr.Web.Controllers
                     kvp => kvp.Value.Errors.Select(e => e.ErrorMessage)));
             }
 
-			// TODO: add registration email stuff, then redirect to other page
+			var emailConfirmationToken = await _userManager.GenerateEmailConfirmationTokenAsync(newUser);
+			var userId = (await _userManager.FindByEmailAsync(email)).Id;
 
-			return RedirectToAction("VerifyEmail", new { id = (await _userManager.FindByEmailAsync(email)).Id, token = (await _userManager.GenerateEmailConfirmationTokenAsync(newUser)) });
+			var verificationUrl = Url.Action("VerifyEmail","Account",new {id = userId, token = emailConfirmationToken});
+
+			await _messageService.Send(email, verificationUrl);
+
+			return RedirectToAction("RegistrationComplete");
+		}
+
+		public IActionResult RegistrationComplete()
+		{
+			return View();
 		}
 
 		public async Task<IActionResult> VerifyEmail(string id, string token)
