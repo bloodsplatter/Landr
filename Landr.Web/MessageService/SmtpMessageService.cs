@@ -1,3 +1,4 @@
+using System.Text;
 using System.Net;
 using System.Net.Mail;
 using System.Threading.Tasks;
@@ -20,8 +21,9 @@ namespace Landr.Web.MessageService
         private readonly SmtpClient _client;
         private readonly IStringLocalizer<SmtpMessageService> _l;
         private readonly string _from;
+        private readonly ViewRender _viewRenderer;
 
-        public SmtpMessageService(IStringLocalizer<SmtpMessageService> localizer, ICredentialsByHost credentials, IConfiguration config)
+        public SmtpMessageService(IStringLocalizer<SmtpMessageService> localizer, ICredentialsByHost credentials, IConfiguration config, ViewRender viewRenderer)
         {
             _l = localizer;
             _client = new SmtpClient
@@ -33,6 +35,7 @@ namespace Landr.Web.MessageService
             };
 
             _from = config[ServerFrom];
+            _viewRenderer = viewRenderer;
         }
 
 
@@ -43,8 +46,22 @@ namespace Landr.Web.MessageService
 
         private MailMessage BuildMailMessage(string to, string verificationUrl)
         {
-            var message = new MailMessage(_from, to);
-            message.
+            var message = new MailMessage(_from, to) {
+                Body = RenderMailTemplate(verificationUrl),
+                BodyEncoding = Encoding.UTF8
+            };
+
+            return message;
+        }
+
+        private string RenderMailTemplate(string verificationUrl)
+        {
+            var model = new {
+                Name = "Tester",
+                VerificationLink = verificationUrl
+            };
+
+            return _viewRenderer.Render("MailTemplates/RegistrationVerificationMail", model);
         }
     }
 }

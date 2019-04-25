@@ -1,0 +1,19 @@
+@model dynamic
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Welcome to Landr! Please verify your account</title>
+</head>
+<body>
+    <h1>Welcome to Landr, @Model.Name!</h1>
+    <p>
+        Please click <a href="@Model.VerificationLink">this link</a> to verify your e-mail address.
+    </p>
+</body>
+</html>
