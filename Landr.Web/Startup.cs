@@ -38,6 +38,7 @@ namespace Landr.Web
             services.ConfigureIdentity();
 
             services.AddScoped<ViewRender, ViewRender>();
+            services.AddScoped<IMessageService, SmtpMessageService>();
 
             //configure some extra cookie policies
             services.Configure<CookiePolicyOptions>(cookie =>
