@@ -2,7 +2,7 @@
 
 namespace Landr.SDK
 {
-    public sealed class AdvancedAppContract : BaseApp, IAdvancedApp
+    public sealed class AdvancedApp : BaseApp, IAdvancedApp
     {
         public string Type { get; set; }
 
