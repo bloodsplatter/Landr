@@ -5,9 +5,13 @@
         <UserSecretsId>9b15e482-a4cb-47be-9a3a-b6e0325181a0</UserSecretsId>
     </PropertyGroup>
     <ItemGroup>
-        <Folder Include="wwwroot\" />
+        <Folder Include="wwwroot\react\" />
     </ItemGroup>
     <ItemGroup>
+        <PackageReference Include="JavaScriptEngineSwitcher.ChakraCore" Version="3.4.4" />
+        <PackageReference Include="JavaScriptEngineSwitcher.ChakraCore.Native.linux-x64" Version="3.4.4" />
+        <PackageReference Include="JavaScriptEngineSwitcher.ChakraCore.Native.win-x64" Version="3.4.4" />
+        <PackageReference Include="JavaScriptEngineSwitcher.Extensions.MsDependencyInjection" Version="3.3.0" />
         <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.2" />
         <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.2" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.2" />
@@ -23,6 +27,7 @@
         <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.1" />
         <PackageReference Include="Microsoft.Composition" Version="1.0.31" ExcludeAssets="All" />
         <PackageReference Include="Microsoft.Extensions.Localization" Version="3.1.2" />
+        <PackageReference Include="React.AspNet" Version="5.2.2" />
     </ItemGroup>
     <ItemGroup>
         <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.4" />

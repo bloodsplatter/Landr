@@ -6,8 +6,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Landr.Data;
 using Landr.Web.Identity;
+using Landr.Web.ReactJS;
 using Landr.Web.MessageService;
 using Microsoft.AspNetCore.Mvc;
+using React.AspNet;
 
 namespace Landr.Web
 {
@@ -30,9 +32,13 @@ namespace Landr.Web
         {
             services.AddLocalization(options => options.ResourcesPath = "Resources");
 
-            services.AddMvc(options => options.EnableEndpointRouting = false)
+            services.ConfigureReactJS();
+
+            services.AddControllersWithViews(options => options.EnableEndpointRouting = false)
                 .SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
                 .AddViewLocalization();
+
+            services.AddRazorPages();
 
             services.AddDataSource();
             services.ConfigureIdentity();
@@ -58,7 +64,18 @@ namespace Landr.Web
                 app.UseBrowserLink(); //browser link enables extra debugging options from the browser, see: https://docs.microsoft.com/en-us/aspnet/core/client-side/using-browserlink?view=aspnetcore-2.
             }
 
+            app.UseMvcWithDefaultRoute();
+
             app.UseAuthentication();
+
+            app.UseReact(config =>
+            {
+                config.AllowJavaScriptPrecompilation = true;
+                config.UseServerSideRendering = true;
+
+                config.AddScript("~/react/*.jsx");
+            });
+
             app.UseStaticFiles();
         }
     }

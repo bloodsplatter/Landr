@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -9,7 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Landr.Web.Identity
 {
-    public static class ServiceConfigurationExtensions
+    public static class IdentityServiceConfigurationExtensions
     {
         private const string AllowedUsernameCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
         private const string UsersDbFileName = "users.db";
