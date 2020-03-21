@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 
 namespace Landr.SDK
 {
@@ -10,6 +11,8 @@ namespace Landr.SDK
         public string Icon { get; set; }
         public string Url { get; set; }
 
+        protected IHttpContextAccessor httpContextAccessor;
+
         public abstract string GetContent();
 
         /// <summary>
@@ -19,6 +22,11 @@ namespace Landr.SDK
         public override string ToString()
         {
             return GetContent();
+        }
+
+        public BaseApp(IHttpContextAccessor accessor)
+        {
+            httpContextAccessor = accessor;
         }
     }
 }

@@ -1,9 +1,11 @@
+using Microsoft.AspNetCore.Http;
+
 namespace Landr.SDK
 {
     /// <inheritdoc />
     public class BasicApp : BaseApp
     { 
-        public BasicApp()
+        public BasicApp(IHttpContextAccessor contextAccessor) : base(contextAccessor)
         {
         }
 
