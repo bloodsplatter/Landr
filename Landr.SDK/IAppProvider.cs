@@ -8,6 +8,9 @@ namespace Landr.SDK
         IEnumerable<IApp> GetApps();
         IEnumerable<BasicApp> GetBasicApps();
 
+        //status
+        public bool IsLoading { get; }
+
         // load the apps
         void Load(params object[] environment);
     }
