@@ -2,9 +2,8 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 
-namespace Landr.Web.Identity
+namespace Microsoft.Extensions.DependencyInjection
 {
     public static class IdentityServiceConfigurationExtensions
     {

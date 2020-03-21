@@ -1,11 +1,9 @@
-﻿using System;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using JavaScriptEngineSwitcher.ChakraCore;
 using JavaScriptEngineSwitcher.Extensions.MsDependencyInjection;
 using React.AspNet;
-using Microsoft.Extensions.DependencyInjection;
 
-namespace Landr.Web.ReactJS
+namespace Microsoft.Extensions.DependencyInjection
 {
     public static class ReactJSServiceConfigurationExtensions
     {

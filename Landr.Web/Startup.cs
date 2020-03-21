@@ -5,8 +5,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Landr.Data;
-using Landr.Web.Identity;
-using Landr.Web.ReactJS;
 using Landr.Web.MessageService;
 using Microsoft.AspNetCore.Mvc;
 using React.AspNet;
