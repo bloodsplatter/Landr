@@ -41,6 +41,8 @@ namespace Landr.Web
             services.AddDataSource();
             services.ConfigureIdentity();
 
+            services.ConfigureSDK(); // initialize Landr SDK
+
             services.AddScoped<ViewRender, ViewRender>();
             services.AddScoped<IMessageService, SmtpMessageService>();
 
