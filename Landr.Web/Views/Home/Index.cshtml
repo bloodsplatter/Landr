@@ -1,4 +1,10 @@
-﻿
+﻿@model IApp[]
 @{
-    ViewData["Title"] = "Welcome";
+    ViewData["Title"] = "Welcome";;
+}
+
+
+@if (this.Model.Length == 0)
+{
+    <partial name="_NoApps" />
 }

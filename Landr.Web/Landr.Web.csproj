@@ -5,9 +5,6 @@
         <UserSecretsId>9b15e482-a4cb-47be-9a3a-b6e0325181a0</UserSecretsId>
     </PropertyGroup>
     <ItemGroup>
-        <Folder Include="wwwroot\react\" />
-    </ItemGroup>
-    <ItemGroup>
         <PackageReference Include="JavaScriptEngineSwitcher.ChakraCore" Version="3.4.4" />
         <PackageReference Include="JavaScriptEngineSwitcher.ChakraCore.Native.linux-x64" Version="3.4.4" />
         <PackageReference Include="JavaScriptEngineSwitcher.ChakraCore.Native.win-x64" Version="3.4.4" />
