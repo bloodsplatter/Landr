@@ -10,21 +10,21 @@ namespace Landr.SDK
         /// <summary>
         /// A unique ID
         /// </summary>
-        Guid Id { get; set; }
+        Guid Id { get; }
 
         /// <summary>
         /// The name of the app
         /// </summary>
-        string Name { get; set; }
+        string Name { get; }
         /// <summary>
         /// The url for the icon
         /// </summary>
-        string Icon { get; set; }
+        string Icon { get;  }
 
         /// <summary>
         /// The url the app redirects to
         /// </summary>
-        string Url { get; set; }
+        string Url { get; }
 
         /// <summary>
         /// Returns the content object
