@@ -3,8 +3,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Landr.Data;
-using Landr.SDK;
 using Landr.Web.Identity;
 using Landr.Web.MessageService;
 using Microsoft.AspNetCore.Mvc;
@@ -13,7 +13,7 @@ namespace Landr.Web
 {
     public class Startup
     {
-        public Startup(IHostingEnvironment env)
+        public Startup(IWebHostEnvironment env)
         {
             var builder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
@@ -30,8 +30,8 @@ namespace Landr.Web
         {
             services.AddLocalization(options => options.ResourcesPath = "Resources");
 
-            services.AddMvc()
-                .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
+            services.AddMvc(options => options.EnableEndpointRouting = false)
+                .SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
                 .AddViewLocalization();
 
             services.AddDataSource();
@@ -50,19 +50,16 @@ namespace Landr.Web
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseBrowserLink(); //browser link enables extra debugging options from the browser, see: https://docs.microsoft.com/en-us/aspnet/core/client-side/using-browserlink?view=aspnetcore-2.1
-                app.UseDatabaseErrorPage();
+                app.UseBrowserLink(); //browser link enables extra debugging options from the browser, see: https://docs.microsoft.com/en-us/aspnet/core/client-side/using-browserlink?view=aspnetcore-2.
             }
 
             app.UseAuthentication();
             app.UseStaticFiles();
-
-            app.UseMvcWithDefaultRoute();
         }
     }
 }

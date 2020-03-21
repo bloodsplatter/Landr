@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
@@ -9,22 +9,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.1.4" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.1.4" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="2.1.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.2" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Landr.SDK\Landr.SDK.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="Microsoft.AspNetCore.Hosting">
-      <HintPath>C:\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.aspnetcore.hosting\2.1.1\lib\netstandard2.0\Microsoft.AspNetCore.Hosting.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.AspNetCore.Hosting.Abstractions">
-      <HintPath>C:\Users\butto\.nuget\packages\microsoft.aspnetcore.hosting.abstractions\2.1.1\lib\netstandard2.0\Microsoft.AspNetCore.Hosting.Abstractions.dll</HintPath>
-    </Reference>
   </ItemGroup>
 
 </Project>
