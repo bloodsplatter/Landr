@@ -1,10 +1,8 @@
 ﻿@model IApp[]
 @{
-    ViewData["Title"] = "Welcome";;
+    ViewData["Title"] = "Welcome";
+    var BasicApps = this.Model.Where(a => a is BasicApp).ToArray();
 }
 
 
-@if (this.Model.Length == 0)
-{
-    <partial name="_NoApps" />
-}
+@Html.React("AppGrid", new { children = BasicApps });

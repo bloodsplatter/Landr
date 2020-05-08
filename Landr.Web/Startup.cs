@@ -8,6 +8,8 @@ using Landr.Data;
 using Landr.Web.MessageService;
 using Microsoft.AspNetCore.Mvc;
 using React.AspNet;
+using System;
+using System.IO;
 
 namespace Landr.Web
 {
@@ -68,13 +70,7 @@ namespace Landr.Web
 
             app.UseAuthentication();
 
-            app.UseReact(config =>
-            {
-                config.AllowJavaScriptPrecompilation = true;
-                config.UseServerSideRendering = true;
-
-                config.AddScript("~/react/*.jsx");
-            });
+            app.UseReact();
 
             app.UseStaticFiles();
         }

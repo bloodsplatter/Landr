@@ -3,28 +3,37 @@
         <TargetFramework>netcoreapp3.1</TargetFramework>
         <AssemblyName>Landr.Web</AssemblyName>
         <UserSecretsId>9b15e482-a4cb-47be-9a3a-b6e0325181a0</UserSecretsId>
+        <Authors>bloodsplatter</Authors>
+        <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="JavaScriptEngineSwitcher.ChakraCore" Version="3.4.4" />
-        <PackageReference Include="JavaScriptEngineSwitcher.ChakraCore.Native.linux-x64" Version="3.4.4" />
-        <PackageReference Include="JavaScriptEngineSwitcher.ChakraCore.Native.win-x64" Version="3.4.4" />
+      <Content Include="react\AppGrid.jsx" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="JavaScriptEngineSwitcher.ChakraCore" Version="3.5.2" />
+        <PackageReference Include="JavaScriptEngineSwitcher.ChakraCore.Native.linux-x64" Version="3.5.2" />
+        <PackageReference Include="JavaScriptEngineSwitcher.ChakraCore.Native.win-x64" Version="3.5.2" />
         <PackageReference Include="JavaScriptEngineSwitcher.Extensions.MsDependencyInjection" Version="3.3.0" />
-        <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.2" />
-        <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.2" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.2" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.2">
+        <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.3" />
+        <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.3" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.3" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.3">
             <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
             <PrivateAssets>all</PrivateAssets>
         </PackageReference>
-        <PackageReference Include="Microsoft.Extensions.Configuration" Version="3.1.2" />
-        <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="3.1.2" />
-        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.2" />
-        <PackageReference Include="Microsoft.Extensions.Identity.Core" Version="3.1.2" />
+        <PackageReference Include="Microsoft.Extensions.Configuration" Version="3.1.3" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="3.1.3" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.3" />
+        <PackageReference Include="Microsoft.Extensions.Identity.Core" Version="3.1.3" />
+        <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="3.8.3">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
         <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.2.0" />
-        <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.1" />
+        <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.2" />
         <PackageReference Include="Microsoft.Composition" Version="1.0.31" ExcludeAssets="All" />
-        <PackageReference Include="Microsoft.Extensions.Localization" Version="3.1.2" />
-        <PackageReference Include="React.AspNet" Version="5.2.2" />
+        <PackageReference Include="Microsoft.Extensions.Localization" Version="3.1.3" />
+        <PackageReference Include="React.AspNet" Version="5.2.4" />
     </ItemGroup>
     <ItemGroup>
         <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.4" />
@@ -33,4 +42,22 @@
         <ProjectReference Include="..\Landr.Data\Landr.Data.csproj" />
         <ProjectReference Include="..\Landr.SDK\Landr.SDK.csproj" />
     </ItemGroup>
+    <ItemGroup>
+      <Folder Include="wwwroot\js\" />
+    </ItemGroup>
+    <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+      <TypeScriptTarget>ES2015</TypeScriptTarget>
+      <TypeScriptJSXEmit>React</TypeScriptJSXEmit>
+      <TypeScriptModuleKind>ES6</TypeScriptModuleKind>
+      <TypeScriptCompileOnSaveEnabled>True</TypeScriptCompileOnSaveEnabled>
+      <TypeScriptNoImplicitAny>False</TypeScriptNoImplicitAny>
+      <TypeScriptRemoveComments>False</TypeScriptRemoveComments>
+      <TypeScriptOutFile>D:\source\Landr\Landr.Web\wwwroot\javascript\bundle.js</TypeScriptOutFile>
+      <TypeScriptOutDir />
+      <TypeScriptGeneratesDeclarations>False</TypeScriptGeneratesDeclarations>
+      <TypeScriptNoEmitOnError>True</TypeScriptNoEmitOnError>
+      <TypeScriptSourceMap>True</TypeScriptSourceMap>
+      <TypeScriptMapRoot />
+      <TypeScriptSourceRoot>D:\source\Landr\Landr.Web\wwwroot\react</TypeScriptSourceRoot>
+    </PropertyGroup>
 </Project>
