@@ -7,33 +7,32 @@
         <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
     </PropertyGroup>
     <ItemGroup>
-      <Content Include="react\AppGrid.jsx" />
+      <Compile Remove="react\**" />
+      <Content Remove="react\**" />
+      <EmbeddedResource Remove="react\**" />
+      <None Remove="react\**" />
+      <TypeScriptCompile Remove="react\**" />
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="JavaScriptEngineSwitcher.ChakraCore" Version="3.5.2" />
-        <PackageReference Include="JavaScriptEngineSwitcher.ChakraCore.Native.linux-x64" Version="3.5.2" />
-        <PackageReference Include="JavaScriptEngineSwitcher.ChakraCore.Native.win-x64" Version="3.5.2" />
-        <PackageReference Include="JavaScriptEngineSwitcher.Extensions.MsDependencyInjection" Version="3.3.0" />
-        <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.3" />
-        <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.3" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.3" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.3">
+        <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.7" />
+        <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.7" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.7" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.7">
             <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
             <PrivateAssets>all</PrivateAssets>
         </PackageReference>
-        <PackageReference Include="Microsoft.Extensions.Configuration" Version="3.1.3" />
-        <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="3.1.3" />
-        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.3" />
-        <PackageReference Include="Microsoft.Extensions.Identity.Core" Version="3.1.3" />
-        <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="3.8.3">
+        <PackageReference Include="Microsoft.Extensions.Configuration" Version="3.1.7" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="3.1.7" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.7" />
+        <PackageReference Include="Microsoft.Extensions.Identity.Core" Version="3.1.7" />
+        <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="4.0.2">
           <PrivateAssets>all</PrivateAssets>
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
         <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.2.0" />
-        <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.2" />
+        <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
         <PackageReference Include="Microsoft.Composition" Version="1.0.31" ExcludeAssets="All" />
-        <PackageReference Include="Microsoft.Extensions.Localization" Version="3.1.3" />
-        <PackageReference Include="React.AspNet" Version="5.2.4" />
+        <PackageReference Include="Microsoft.Extensions.Localization" Version="3.1.7" />
     </ItemGroup>
     <ItemGroup>
         <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.4" />

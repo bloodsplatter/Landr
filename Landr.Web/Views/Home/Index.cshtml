@@ -3,6 +3,3 @@
     ViewData["Title"] = "Welcome";
     var BasicApps = this.Model.Where(a => a is BasicApp).ToArray();
 }
-
-
-@Html.React("AppGrid", new { children = BasicApps });

@@ -7,9 +7,6 @@ using Microsoft.Extensions.Hosting;
 using Landr.Data;
 using Landr.Web.MessageService;
 using Microsoft.AspNetCore.Mvc;
-using React.AspNet;
-using System;
-using System.IO;
 
 namespace Landr.Web
 {
@@ -31,8 +28,6 @@ namespace Landr.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddLocalization(options => options.ResourcesPath = "Resources");
-
-            services.ConfigureReactJS();
 
             services.AddControllersWithViews(options => options.EnableEndpointRouting = false)
                 .SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
@@ -69,8 +64,6 @@ namespace Landr.Web
             app.UseMvcWithDefaultRoute();
 
             app.UseAuthentication();
-
-            app.UseReact();
 
             app.UseStaticFiles();
         }
