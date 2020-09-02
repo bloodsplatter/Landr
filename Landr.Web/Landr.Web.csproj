@@ -5,14 +5,8 @@
         <UserSecretsId>9b15e482-a4cb-47be-9a3a-b6e0325181a0</UserSecretsId>
         <Authors>bloodsplatter</Authors>
         <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
-    </PropertyGroup>
-    <ItemGroup>
-      <Compile Remove="react\**" />
-      <Content Remove="react\**" />
-      <EmbeddedResource Remove="react\**" />
-      <None Remove="react\**" />
-      <TypeScriptCompile Remove="react\**" />
-    </ItemGroup>
+    </PropertyGroup>   
+
     <ItemGroup>
         <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.7" />
         <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.7" />
@@ -41,22 +35,5 @@
         <ProjectReference Include="..\Landr.Data\Landr.Data.csproj" />
         <ProjectReference Include="..\Landr.SDK\Landr.SDK.csproj" />
     </ItemGroup>
-    <ItemGroup>
-      <Folder Include="wwwroot\js\" />
-    </ItemGroup>
-    <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
-      <TypeScriptTarget>ES2015</TypeScriptTarget>
-      <TypeScriptJSXEmit>React</TypeScriptJSXEmit>
-      <TypeScriptModuleKind>ES6</TypeScriptModuleKind>
-      <TypeScriptCompileOnSaveEnabled>True</TypeScriptCompileOnSaveEnabled>
-      <TypeScriptNoImplicitAny>False</TypeScriptNoImplicitAny>
-      <TypeScriptRemoveComments>False</TypeScriptRemoveComments>
-      <TypeScriptOutFile>D:\source\Landr\Landr.Web\wwwroot\javascript\bundle.js</TypeScriptOutFile>
-      <TypeScriptOutDir />
-      <TypeScriptGeneratesDeclarations>False</TypeScriptGeneratesDeclarations>
-      <TypeScriptNoEmitOnError>True</TypeScriptNoEmitOnError>
-      <TypeScriptSourceMap>True</TypeScriptSourceMap>
-      <TypeScriptMapRoot />
-      <TypeScriptSourceRoot>D:\source\Landr\Landr.Web\wwwroot\react</TypeScriptSourceRoot>
-    </PropertyGroup>
+
 </Project>
