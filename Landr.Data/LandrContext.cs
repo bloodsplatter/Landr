@@ -40,8 +40,6 @@ namespace Landr.Data
             return advancedApp;
         }
 
-        //TODO: Create models, add as DbSet<T> properties
-
         public DbSet<BasicApp> BasicApps { get; set; }
         public DbSet<AdvancedApp> AdvancedApps { get; set; }
     }

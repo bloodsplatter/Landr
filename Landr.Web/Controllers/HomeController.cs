@@ -1,6 +1,7 @@
 ﻿using Landr.SDK;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Landr.Web.Controllers
 {
@@ -13,7 +14,7 @@ namespace Landr.Web.Controllers
             this.appProvider = appProvider;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             return View(appProvider.GetApps().ToArray());
         }
