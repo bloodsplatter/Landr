@@ -61,7 +61,7 @@ namespace Landr.Web.Controllers
 			return RedirectToAction("RegistrationComplete");
 		}
 
-		public async Task<IActionResult> RegistrationComplete()
+		public  IActionResult RegistrationComplete()
 		{
 			return View();
 		}
