@@ -2,3 +2,8 @@ img.svg-icon
 {
     height: 3em;
 }
+
+main#root
+{
+    margin-top: 3em;
+}
