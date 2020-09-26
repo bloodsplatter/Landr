@@ -137,18 +137,18 @@ namespace Landr.SDK
             }
         }
 
-        public IEnumerable<IApp> GetApps()
+        public IReadOnlyList<IApp> GetApps()
         {
             AssertHasFinishedLoading();
 
-            return apps.AsEnumerable();
+            return apps.ToArray();
         }
 
-        public IEnumerable<BasicApp> GetBasicApps()
+        public IReadOnlyList<BasicApp> GetBasicApps()
         {
             AssertHasFinishedLoading();
 
-            return apps.Where(a => a is BasicApp).Select(a => (BasicApp)a);
+            return apps.Where(a => a is BasicApp).Select(a => (BasicApp)a).ToArray();
         }
 
         private void AssertHasFinishedLoading()

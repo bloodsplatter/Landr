@@ -5,8 +5,8 @@ namespace Landr.SDK
     public interface IAppProvider
     {
         //getting apps
-        IEnumerable<IApp> GetApps();
-        IEnumerable<BasicApp> GetBasicApps();
+        IReadOnlyList<IApp> GetApps();
+        IReadOnlyList<BasicApp> GetBasicApps();
 
         //status
         public bool IsLoading { get; }
