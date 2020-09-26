@@ -65,7 +65,20 @@ namespace Landr.Web
 
             app.UseAuthentication();
 
-            app.UseStaticFiles();
+            if (env.IsDevelopment())
+            {
+                app.UseStaticFiles(new StaticFileOptions
+                {
+                    OnPrepareResponse = ctx =>
+                    {
+                        ctx.Context.Response.Headers.Append(
+                            "Cache-Control", "no-store");
+                    }
+                });
+            } else
+            {
+                app.UseStaticFiles();
+            }
         }
     }
 }
