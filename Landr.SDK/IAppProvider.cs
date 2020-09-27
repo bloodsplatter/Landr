@@ -6,7 +6,7 @@ namespace Landr.SDK
     {
         //getting apps
         IReadOnlyList<IApp> GetApps();
-        IReadOnlyList<BasicApp> GetBasicApps();
+        IReadOnlyList<TAppType> GetAppsOfType<TAppType>() where TAppType : IApp;
 
         //status
         public bool IsLoading { get; }

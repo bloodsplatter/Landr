@@ -5,9 +5,10 @@ using System.Linq;
 using System.Globalization;
 using System.Runtime.Loader;
 using System.Reflection;
+
 namespace Landr.SDK
 {
-    public class StandardAppProvider : IAppProvider
+    public class ExternalAppProvider : IAppProvider
     {
         private static object _lockObject = new object();
         private const string DllSearchPattern = "*.dll";
@@ -17,12 +18,12 @@ namespace Landr.SDK
 
         public bool IsLoading { get; private set; } = false;
 
-        public StandardAppProvider()
+        public ExternalAppProvider()
         {
             Initialize(new string[] { Environment.CurrentDirectory });
         }
 
-        public StandardAppProvider(params string[] assemblies)
+        public ExternalAppProvider(params string[] assemblies)
         {
             Initialize(assemblies);
         }
@@ -144,11 +145,11 @@ namespace Landr.SDK
             return apps.ToArray();
         }
 
-        public IReadOnlyList<BasicApp> GetBasicApps()
+        public IReadOnlyList<TAppType> GetAppsOfType<TAppType>() where TAppType : IApp
         {
             AssertHasFinishedLoading();
 
-            return apps.Where(a => a is BasicApp).Select(a => (BasicApp)a).ToArray();
+            return apps.Where(a => a is TAppType).Select(a => (TAppType)a).ToArray();
         }
 
         private void AssertHasFinishedLoading()

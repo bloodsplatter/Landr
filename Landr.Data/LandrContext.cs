@@ -12,14 +12,12 @@ namespace Landr.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            BasicAppSetup(modelBuilder);
-            AdvancedAppSetup(modelBuilder);
-            
+            AppSetup(modelBuilder);
         }
 
-        private EntityTypeBuilder<BasicApp> BasicAppSetup(ModelBuilder modelBuilder)
+        private EntityTypeBuilder<BaseApp> AppSetup(ModelBuilder modelBuilder)
         {
-            var basicApp = modelBuilder.Entity<BasicApp>();
+            var basicApp = modelBuilder.Entity<BaseApp>();
             basicApp.HasKey(ba => ba.Id);
 
             basicApp.Property(ba => ba.Name).IsRequired();
@@ -28,19 +26,6 @@ namespace Landr.Data
             return basicApp;
         }
 
-        private EntityTypeBuilder<AdvancedApp> AdvancedAppSetup(ModelBuilder modelBuilder)
-        {
-            var advancedApp = modelBuilder.Entity<AdvancedApp>();
-            advancedApp.ToTable("AdvancedApps");
-            advancedApp.HasKey(aa => aa.Id);
-            advancedApp.Property(aa => aa.Type).IsRequired();
-            advancedApp.Property(aa => aa.Url).IsRequired();
-            advancedApp.Property(aa => aa.Name).IsRequired();
-
-            return advancedApp;
-        }
-
-        public DbSet<BasicApp> BasicApps { get; set; }
-        public DbSet<AdvancedApp> AdvancedApps { get; set; }
+        public DbSet<BaseApp> Apps { get; set; }
     }
 }

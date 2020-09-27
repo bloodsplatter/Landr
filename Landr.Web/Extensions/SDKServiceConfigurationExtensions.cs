@@ -1,4 +1,5 @@
 ﻿using Landr.SDK;
+using Landr.Web.BuiltInApps;
 
 namespace Microsoft.Extensions.DependencyInjection
 {
@@ -6,7 +7,8 @@ namespace Microsoft.Extensions.DependencyInjection
     {
         public static void ConfigureSDK(this IServiceCollection services)
         {
-            services.AddSingleton<IAppProvider, StandardAppProvider>();
+            services.AddSingleton<IAppProvider, ExternalAppProvider>();
+            services.AddSingleton<IAppProvider, BuiltInAppProvider>();
         }
     }
 }
