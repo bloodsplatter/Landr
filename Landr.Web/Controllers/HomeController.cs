@@ -17,5 +17,7 @@ namespace Landr.Web.Controllers
         {
             return View(appProvider.GetApps());
         }
+
+        
     }
 }

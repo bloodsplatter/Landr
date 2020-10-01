@@ -22,7 +22,7 @@ namespace Landr.Web.BuiltInApps
 
         public IReadOnlyList<TAppType> GetAppsOfType<TAppType>() where TAppType : IApp
         {
-            throw new NotImplementedException();
+            return GetApps().Where(a => a is TAppType).Select(a => (TAppType)a).ToArray();
         }
 
         public void Load(params object[] environment)
