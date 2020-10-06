@@ -16,17 +16,17 @@ namespace Microsoft.Extensions.DependencyInjection
             {
                 //Password settings
                 options.Password.RequireLowercase = true;
-                options.Password.RequireLowercase = true;
+                options.Password.RequireUppercase = true;
                 options.Password.RequireDigit = true;
                 options.Password.RequiredLength = 6;
                 
                 //Lockout settings
-                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
-                options.Lockout.MaxFailedAccessAttempts = 5;
+                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(10);
+                options.Lockout.MaxFailedAccessAttempts = 3;
 
                 //User settings
                 options.User.AllowedUserNameCharacters = AllowedUsernameCharacters;
-                options.User.RequireUniqueEmail = false;
+                options.User.RequireUniqueEmail = true;
             });
 
             services.ConfigureApplicationCookie(options =>
