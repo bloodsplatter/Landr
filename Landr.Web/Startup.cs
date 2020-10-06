@@ -7,6 +7,7 @@ using Microsoft.Extensions.Hosting;
 using Landr.Data;
 using Landr.Web.MessageService;
 using Microsoft.AspNetCore.Mvc;
+using Landr.Web.Extensions;
 
 namespace Landr.Web
 {
@@ -39,6 +40,8 @@ namespace Landr.Web
             services.ConfigureIdentity();
 
             services.ConfigureSDK(); // initialize Landr SDK
+
+            services.AddLandr();
 
             services.AddScoped<ViewRender, ViewRender>();
             services.AddScoped<IMessageService, SmtpMessageService>();

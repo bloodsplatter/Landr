@@ -35,5 +35,8 @@
         <ProjectReference Include="..\Landr.Data\Landr.Data.csproj" />
         <ProjectReference Include="..\Landr.SDK\Landr.SDK.csproj" />
     </ItemGroup>
+    <ItemGroup>
+      <Folder Include="Views\Settings\" />
+    </ItemGroup>
 
 </Project>

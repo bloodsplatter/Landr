@@ -6,16 +6,16 @@ namespace Landr.Web.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IAppProvider appProvider;
+        private readonly IAppProvider _appProvider;
 
         public HomeController(IAppProvider appProvider)
         {
-            this.appProvider = appProvider;
+            this._appProvider = appProvider;
         }
 
         public IActionResult Index()
         {
-            return View(appProvider.GetApps());
+            return View(_appProvider.GetApps());
         }
 
         
