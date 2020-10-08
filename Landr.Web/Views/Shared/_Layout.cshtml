@@ -11,10 +11,11 @@
 
 <body>
     <nav class="navbar navbar-dark bg-dark">
-        <a class="navbar-brand" href="#"><img class="svg-icon" src="~/images/landr.svg"></a>
-        <ul class="navbar-nav navbar-brand ml-auto">
-            <li>Landr</li>
-        </ul>
+        <a class="navbar-brand" href="#"><img class="svg-icon" src="~/images/landr.svg">Landr</a>
+        @if(!User.Identity.IsAuthenticated)
+        {
+            await Html.RenderPartialAsync("../Account/_Login");
+        }
     </nav>
     <main class="container" role="main" id="root">
         @RenderBody()
@@ -22,7 +23,7 @@
     <footer class="footer fixed-bottom">
         <div class="container">
             <p><a href="https://www.flaticon.com/free-icon/lander_124578">Icon</a> made by <a href="https://www.freepik.com/">Freepik</a>.</p>
-            @RenderSection("Footer", required: false)
+            @RenderSectionAsync("Footer", required: false)
         </div>
     </footer>
     <!-- JS, Popper.js, and jQuery -->
