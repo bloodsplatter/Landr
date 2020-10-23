@@ -1,7 +1,4 @@
-﻿using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Options;
-using System;
+﻿using Microsoft.Extensions.DependencyInjection;
 
 namespace Landr.Web.MessageService
 {
