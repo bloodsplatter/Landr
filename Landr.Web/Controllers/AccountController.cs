@@ -25,6 +25,11 @@ namespace Landr.Web.Controllers
 			_messageService = messageService;
 		}
 
+		public ActionResult Register()
+        {
+			return View();
+        }
+
 		[HttpPost]
 		public async Task<IActionResult> Register(string email, string password, string repassword)
 		{
