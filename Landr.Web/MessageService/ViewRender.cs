@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Routing;
 namespace Landr.Web.MessageService
 {
     // All credit to: https://stackoverflow.com/a/37296765/176541 
-    public class ViewRender
+    public class ViewRender : IViewRender
     {
         private IRazorViewEngine _viewEngine;
         private ITempDataProvider _tempDataProvider;

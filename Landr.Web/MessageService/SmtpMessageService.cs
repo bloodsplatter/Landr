@@ -1,40 +1,32 @@
 using System.Text;
-using System.Net;
 using System.Net.Mail;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Localization;
+using Microsoft.Extensions.Options;
 
 namespace Landr.Web.MessageService
 {
     public class SmtpMessageService : IMessageService
-    {
-        #region Configuration Keys
-
-        private const string ServerAddress = "Smtp:Server";
-        private const string ServerPort = "Smtp:Port";
-        private const string ServerUseSSL = "Smtp:UseSSL";
-        private const string ServerFrom = "Smtp:From";
-
-        #endregion
-        
+    {        
         private readonly SmtpClient _client;
         private readonly IStringLocalizer<SmtpMessageService> _l;
         private readonly string _from;
-        private readonly ViewRender _viewRenderer;
+        private readonly IViewRender _viewRenderer;
 
-        public SmtpMessageService(IStringLocalizer<SmtpMessageService> localizer, ICredentialsByHost credentials, IConfiguration config, ViewRender viewRenderer)
+        public SmtpMessageService(IStringLocalizer<SmtpMessageService> localizer, IOptions<MessageServiceOptions> options, IViewRender viewRenderer)
         {
             _l = localizer;
+            
             _client = new SmtpClient
             {
-                Credentials = credentials,
-                Host = config[ServerAddress],
-                Port = int.Parse(config[ServerPort]),
-                EnableSsl = bool.Parse(config[ServerUseSSL])
+                Credentials = options.Value.SmtpCredentials,
+                Host = options.Value.Host,
+                Port = options.Value.Port,
+                EnableSsl = options.Value.EnableSsl
             };
 
-            _from = config[ServerFrom];
+            _from = options.Value.From;
             _viewRenderer = viewRenderer;
         }
 

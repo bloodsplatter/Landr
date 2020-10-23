@@ -41,10 +41,9 @@ namespace Landr.Web
 
             services.ConfigureSDK(); // initialize Landr SDK
 
-            services.AddLandr();
+            services.AddMessageService();
 
-            services.AddScoped<ViewRender, ViewRender>();
-            services.AddScoped<IMessageService, SmtpMessageService>();
+            services.AddLandr();
 
             //configure some extra cookie policies
             services.Configure<CookiePolicyOptions>(cookie =>
