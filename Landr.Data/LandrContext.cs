@@ -23,13 +23,15 @@ namespace Landr.Data
 
             basicApp.Property(ba => ba.Name).IsRequired();
             basicApp.Property(ba => ba.Url).IsRequired();
+            basicApp.Property(ba => ba.Icon).IsRequired(false);
         }
 
         private void UserSettingsSetup(ModelBuilder modelBuilder)
         {
             var userSettings = modelBuilder.Entity<UserSettings>();
             userSettings.HasKey(us => us.UserId);
-
+            userSettings.Property(us => us.DisplayName).IsRequired(false);
+            
             userSettings.ToTable("UserSettings");
         }
 
