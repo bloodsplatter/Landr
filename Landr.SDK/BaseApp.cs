@@ -5,10 +5,10 @@ namespace Landr.SDK
     /// <inheritdoc />
     public class BaseApp : IApp
     {
-        public Guid Id { get; set; }
-        public string Name { get; set; }
-        public string Icon { get; set; }
-        public string Url { get; set; }
+        public Guid Id { get; set; } = Guid.Empty;
+        public string Name { get; set; } = string.Empty;
+        public string Icon { get; set; } = string.Empty;
+        public string Url { get; set; } = string.Empty;
 
         public virtual string GetContent()
         {

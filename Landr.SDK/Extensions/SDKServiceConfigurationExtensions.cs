@@ -1,12 +1,12 @@
-﻿using Landr.SDK;
+﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace Microsoft.Extensions.DependencyInjection
+namespace Landr.SDK.Extensions
 {
     public static class SDKServiceConfigurationExtensions
     {
         public static void ConfigureSDK(this IServiceCollection services)
         {
-            services.AddSingleton<IAppProvider, ExternalAppProvider>();
+            services.AddScoped<IAppProvider, ExternalAppProvider>();
         }
     }
 }

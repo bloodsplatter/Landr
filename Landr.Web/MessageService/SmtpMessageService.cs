@@ -1,3 +1,5 @@
+using System;
+using System.Net;
 using System.Text;
 using System.Net.Mail;
 using System.Threading.Tasks;
@@ -16,17 +18,28 @@ namespace Landr.Web.MessageService
 
         public SmtpMessageService(IStringLocalizer<SmtpMessageService> localizer, IOptions<MessageServiceOptions> options, IViewRender viewRenderer)
         {
-            _l = localizer;
+            _l = localizer ?? throw new ArgumentNullException(nameof(localizer));
+
+            if (options == null)
+                throw new ArgumentException(nameof(options));
+            
+            var serviceOptions = options.Value;
+
+            if (serviceOptions.UseDevelopment)
+                throw new InvalidOperationException("You cannot use SmtpClient with UseDevelopment = true");
+            
+            var credentials =
+                new NetworkCredential(serviceOptions.Username, serviceOptions.Password, serviceOptions.Host);
             
             _client = new SmtpClient
             {
-                Credentials = options.Value.SmtpCredentials,
-                Host = options.Value.Host,
-                Port = options.Value.Port,
-                EnableSsl = options.Value.EnableSsl
+                Credentials = credentials,
+                Host = serviceOptions.Host,
+                Port = serviceOptions.Port,
+                EnableSsl = serviceOptions.EnableSsl
             };
 
-            _from = options.Value.From;
+            _from = serviceOptions.From;
             _viewRenderer = viewRenderer;
         }
 

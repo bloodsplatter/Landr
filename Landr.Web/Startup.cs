@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Landr.Data;
+using Landr.SDK.Extensions;
 using Landr.Web.MessageService;
 using Microsoft.AspNetCore.Mvc;
 using Landr.Web.Extensions;
@@ -30,8 +31,7 @@ namespace Landr.Web
         {
             services.AddLocalization(options => options.ResourcesPath = "Resources");
 
-            services.AddControllersWithViews(options => options.EnableEndpointRouting = false)
-                .SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
+            services.AddMvc()
                 .AddViewLocalization();
 
             services.AddRazorPages();
@@ -41,7 +41,7 @@ namespace Landr.Web
 
             services.ConfigureSDK(); // initialize Landr SDK
 
-            services.AddMessageService();
+            services.AddMessageService(Configuration);
 
             services.AddLandr();
 
@@ -63,8 +63,6 @@ namespace Landr.Web
                 app.UseBrowserLink(); //browser link enables extra debugging options from the browser, see: https://docs.microsoft.com/en-us/aspnet/core/client-side/using-browserlink?view=aspnetcore-2.
             }
 
-            app.UseMvcWithDefaultRoute();
-
             app.UseAuthentication();
 
             if (env.IsDevelopment())
@@ -81,6 +79,13 @@ namespace Landr.Web
             {
                 app.UseStaticFiles();
             }
+
+            app.UseRouting();
+            app.UseEndpoints(builder =>
+            {
+                builder.MapControllers();
+                builder.MapDefaultControllerRoute();
+            });
         }
     }
 }

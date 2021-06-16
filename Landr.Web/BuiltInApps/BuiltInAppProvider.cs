@@ -8,26 +8,35 @@ namespace Landr.Web.BuiltInApps
 {
     public sealed class BuiltInAppProvider : IAppProvider
     {
+        private List<BaseApp> _apps = new();
+        
         public bool IsLoading { get; private set; }
 
         public BuiltInAppProvider()
         {
-            //TODO: Expand constructor to have access to the builtin apps
         }
 
-        public IReadOnlyList<IApp> GetApps()
+        public Task<IReadOnlyCollection<IApp>> GetAppsAsync()
         {
-            throw new NotImplementedException();
+            return Task.FromResult<IReadOnlyCollection<IApp>>(_apps.Cast<IApp>().ToArray());
         }
 
-        public IReadOnlyList<TAppType> GetAppsOfType<TAppType>() where TAppType : IApp
+        public async Task<IReadOnlyCollection<TAppType>> GetAppsOfTypeAsync<TAppType>() where TAppType : IApp
         {
-            return GetApps().Where(a => a is TAppType).Select(a => (TAppType)a).ToArray();
+            return (await GetAppsAsync()).OfType<TAppType>().ToArray();
         }
 
-        public void Load(params object[] environment)
+        public Task LoadAsync(params object[] environment)
         {
-            throw new NotImplementedException();
+            if (IsLoading) return Task.CompletedTask;
+
+            IsLoading = true;
+
+            _apps = new List<BaseApp>(1);
+
+            IsLoading = false;
+            
+            return Task.CompletedTask;
         }
     }
 }

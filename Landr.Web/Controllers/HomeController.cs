@@ -1,23 +1,25 @@
-﻿using Landr.SDK;
+﻿using System.Collections.Generic;
+using Landr.SDK;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
+using System.Threading.Tasks;
+using Landr.SDK.Extensions;
 
 namespace Landr.Web.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IAppProvider _appProvider;
+        private readonly IAppProvider[] _appProviders;
 
-        public HomeController(IAppProvider appProvider)
+        public HomeController(IEnumerable<IAppProvider> appProviders)
         {
-            this._appProvider = appProvider;
+            _appProviders = appProviders.ToArray();
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View(_appProvider.GetApps());
+            return View(await _appProviders.GetAppsAsync());
         }
 
-        
     }
 }

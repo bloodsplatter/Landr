@@ -1,18 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Landr.SDK
 {
     public interface IAppProvider
     {
         //getting apps
-        IReadOnlyList<IApp> GetApps();
-        IReadOnlyList<TAppType> GetAppsOfType<TAppType>() where TAppType : IApp;
+        Task<IReadOnlyCollection<IApp>> GetAppsAsync();
+        Task<IReadOnlyCollection<TAppType>> GetAppsOfTypeAsync<TAppType>() where TAppType : IApp;
 
         //status
         public bool IsLoading { get; }
 
         // load the apps
-        void Load(params object[] environment);
+        Task LoadAsync(params object[] environment);
     }
 }

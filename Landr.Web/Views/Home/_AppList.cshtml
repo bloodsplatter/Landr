@@ -1,0 +1,22 @@
+@model IReadOnlyCollection<IApp>
+
+@{
+    var appCount = Model.Count;
+    var appsPerCol = 3;
+    var finalOverflow = appCount % appsPerCol;
+    var appsPerRow = (appCount - finalOverflow) / appsPerCol;
+}
+
+@for (int i = 0; i < appCount; i += appsPerRow)
+{
+    <div class="app-row">
+    @{
+        var appRow = Model.Skip(i).Take(appsPerCol).ToArray();
+        foreach (var app in appRow)
+        {
+            @await Html.PartialAsync("_AppCell", app);
+        }
+    }
+    </div>
+    @if (appRow.Length < appsPerRow) break;
+}

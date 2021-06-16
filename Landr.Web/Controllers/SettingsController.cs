@@ -21,8 +21,13 @@ namespace Landr.Web.Controllers
         [Authorize]
         public async Task<IActionResult> Index()
         {
-            var currentUserEmail = User.FindFirst(c => c.Type == ClaimTypes.Email).Value;
+            var currentUserEmail = User.FindFirst(c => c.Type == ClaimTypes.Email)?.Value;
 
+            if (string.IsNullOrEmpty(currentUserEmail))
+            {
+                return Problem("User is logged in but no email is set", statusCode: 500);
+            }
+            
             var viewModel = await _repository.Get(currentUserEmail);
 
             return View(viewModel);

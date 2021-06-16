@@ -1,11 +1,13 @@
-﻿@model IReadOnlyList<IApp>
+﻿@model IReadOnlyCollection<IApp>
 @{
     ViewData["Title"] = "Welcome";
 }
 
-@if (Model.Count() < 1)
+@if (Model.Count < 1)
 {
-<div class="row justify-content-center">
-    <div class="col"><h1>There doesn't seem to be anything here.<br/>You could add some apps?</h1></div>
-</div>
+    @await Html.PartialAsync("_EmptyAppList")
+}
+else
+{
+    @await Html.PartialAsync("_AppList", Model)
 }

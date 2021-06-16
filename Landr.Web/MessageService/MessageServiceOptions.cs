@@ -4,16 +4,14 @@ namespace Landr.Web.MessageService
 {
     public class MessageServiceOptions
     {
-        public const string TopLevel = "Smtp";
-        public const string ServerAddress = "Smtp:Server";
-        public const string ServerPort = "Smtp:Port";
-        public const string ServerUseSSL = "Smtp:UseSSL";
-        public const string ServerFrom = "Smtp:From";
-
-        public ICredentialsByHost SmtpCredentials { get; set; }
-        public string Host { get; set; }
-        public int Port { get; set; }
-        public bool EnableSsl { get; set; }
-        public string From { get; set; }
+        public const string ConfigSection = "MessageService";
+        
+        public string Username { get; set; } = string.Empty;
+        public string Password { get; set; } = string.Empty;
+        public string Host { get; set; } = "localhost";
+        public int Port { get; set; } = 465;
+        public bool EnableSsl { get; set; } = true;
+        public string From { get; set; } = string.Empty;
+        public bool UseDevelopment { get; set; } = false;
     }
 }

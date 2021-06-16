@@ -92,7 +92,7 @@ namespace Landr.Web.Controllers
 		}
 
 		[HttpPost]
-		public async Task<IActionResult> Login(string email, string password, bool rememberMe = true)
+		public async Task<IActionResult> Login([FromForm] string email, [FromForm] string password, [FromForm] bool rememberMe = true)
 		{
 			var user = await _userManager.FindByEmailAsync(email);
 			if (user == null)
