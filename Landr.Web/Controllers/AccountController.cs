@@ -111,5 +111,23 @@ namespace Landr.Web.Controllers
 
             return RedirectToAction("Index", "Home");
         }
+
+		[HttpGet]
+		public async Task<IActionResult> ResetPassword([FromQuery] string email, [FromQuery] string newPassword)
+		{
+			if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(newPassword)) return BadRequest();
+
+			var userManager = _signInManager.UserManager;
+			var user = await userManager.FindByEmailAsync(email);
+
+			if (user == null) return NotFound();
+
+			var resetToken = await userManager.GeneratePasswordResetTokenAsync(user);
+			var result = await userManager.ResetPasswordAsync(user, resetToken, newPassword);
+
+			if (result.Succeeded) return Ok();
+
+			return Problem();
+		}
 	}
 }
